@@ -1,0 +1,29 @@
+:host {
+  display: inline-flex;
+}
+
+.gv-iris {
+  transform: rotate(-90deg);
+
+  &__track {
+    fill: none;
+    stroke: var(--gv-border);
+    stroke-width: 6;
+  }
+
+  &__value {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.6s ease;
+  }
+
+  &__label {
+    transform: rotate(90deg);
+    transform-origin: 42px 42px;
+    fill: var(--gv-text);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+  }
+}

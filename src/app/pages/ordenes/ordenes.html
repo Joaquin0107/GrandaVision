@@ -1,0 +1,62 @@
+<div class="gv-page">
+  <header class="gv-page__header">
+    <div>
+      <h1 class="gv-display">Órdenes de Compra</h1>
+      <p class="gv-page__subtitle">Seguimiento del proceso de reabastecimiento con proveedores.</p>
+    </div>
+    <button mat-flat-button color="primary" (click)="abrirNueva()">
+      <mat-icon>add</mat-icon>
+      Nueva orden
+    </button>
+  </header>
+
+  <div class="gv-table-wrap">
+    <table mat-table [dataSource]="ordenes()">
+      <ng-container matColumnDef="numeroOrden">
+        <th mat-header-cell *matHeaderCellDef>N.° Orden</th>
+        <td mat-cell *matCellDef="let o" class="gv-mono">{{ o.numeroOrden }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="proveedor">
+        <th mat-header-cell *matHeaderCellDef>Proveedor</th>
+        <td mat-cell *matCellDef="let o">{{ o.proveedor }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="items">
+        <th mat-header-cell *matHeaderCellDef>Productos</th>
+        <td mat-cell *matCellDef="let o">
+          @for (item of o.items; track item.productoId) {
+            <div>{{ item.productoNombre }} × {{ item.cantidad }}</div>
+          }
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let o">{{ o.fecha }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let o"><span [class]="chipClase(o.estado)">{{ o.estado }}</span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let o">
+          <button mat-icon-button (click)="abrirEditar(o)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button (click)="eliminar(o)"><mat-icon>delete</mat-icon></button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+
+      <tr class="mat-row gv-table__empty" *matNoDataRow>
+        <td class="mat-cell" [attr.colspan]="columnas.length">
+          @if (cargando()) { Cargando órdenes... } @else { Aún no hay órdenes de compra registradas. }
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

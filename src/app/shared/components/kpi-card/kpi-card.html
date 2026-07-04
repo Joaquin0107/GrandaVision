@@ -1,0 +1,9 @@
+<div class="gv-kpi" [class]="'gv-kpi--' + tone()">
+  <div class="gv-kpi__icon">
+    <mat-icon>{{ icon() }}</mat-icon>
+  </div>
+  <div class="gv-kpi__body">
+    <span class="gv-kpi__value gv-display">{{ value() }}</span>
+    <span class="gv-kpi__label">{{ label() }}</span>
+  </div>
+</div>

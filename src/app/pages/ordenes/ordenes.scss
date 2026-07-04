@@ -1,0 +1,11 @@
+.gv-table__empty {
+  td {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--gv-text-muted);
+  }
+}
+
+table {
+  width: 100%;
+}

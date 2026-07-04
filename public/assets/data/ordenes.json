@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "numeroOrden": "OC-2026-001",
+    "proveedor": "Luxottica",
+    "items": [ { "productoId": 1, "productoNombre": "Montura RayBan Aviator", "cantidad": 40 } ],
+    "fecha": "2026-06-20",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 2,
+    "numeroOrden": "OC-2026-002",
+    "proveedor": "Essilor",
+    "items": [ { "productoId": 4, "productoNombre": "Luna Fotocromática 1.61", "cantidad": 25 } ],
+    "fecha": "2026-06-25",
+    "estado": "En proceso"
+  },
+  {
+    "id": 3,
+    "numeroOrden": "OC-2026-003",
+    "proveedor": "Johnson & Johnson",
+    "items": [ { "productoId": 6, "productoNombre": "Lente de Contacto Diario", "cantidad": 50 } ],
+    "fecha": "2026-06-10",
+    "estado": "Recibida"
+  }
+]

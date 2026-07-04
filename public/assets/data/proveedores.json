@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nombre": "Luxottica", "contacto": "Marco Bianchi", "telefono": "+51 987 111 222", "email": "ventas@luxottica.com" },
+  { "id": 2, "nombre": "Essilor", "contacto": "Claire Dubois", "telefono": "+51 987 333 444", "email": "contacto@essilor.com" },
+  { "id": 3, "nombre": "Johnson & Johnson", "contacto": "Laura Gómez", "telefono": "+51 987 555 666", "email": "pedidos@jnj.com" },
+  { "id": 4, "nombre": "Persol", "contacto": "Andrea Conti", "telefono": "+51 987 777 888", "email": "info@persol.com" },
+  { "id": 5, "nombre": "Vision Supply Co.", "contacto": "Renzo Aguilar", "telefono": "+51 987 999 000", "email": "ventas@visionsupply.pe" }
+]

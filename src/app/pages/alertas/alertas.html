@@ -1,0 +1,32 @@
+<div class="gv-page">
+  <header class="gv-page__header">
+    <div>
+      <h1 class="gv-display">Alertas Inteligentes</h1>
+      <p class="gv-page__subtitle">Generadas automáticamente según reglas de stock mínimo y sobrestock.</p>
+    </div>
+  </header>
+
+  @if (cargando()) {
+    <div class="gv-card">Cargando alertas...</div>
+  } @else if (alertas().length === 0) {
+    <div class="gv-card gv-alertas__empty">
+      <mat-icon>check_circle</mat-icon>
+      <p>No hay alertas activas. El inventario está dentro de los rangos esperados.</p>
+    </div>
+  } @else {
+    <section class="gv-alertas__list">
+      @for (alerta of alertas(); track alerta.id) {
+        <div class="gv-alerta gv-alerta--{{ alerta.severidad }}" [class.gv-alerta--leida]="alerta.leida">
+          <mat-icon>{{ icono(alerta) }}</mat-icon>
+          <div class="gv-alerta__body">
+            <strong>{{ alerta.productoNombre }}</strong>
+            <span>{{ alerta.mensaje }}</span>
+          </div>
+          @if (!alerta.leida) {
+            <button mat-button (click)="marcarLeida(alerta)">Marcar leída</button>
+          }
+        </div>
+      }
+    </section>
+  }
+</div>

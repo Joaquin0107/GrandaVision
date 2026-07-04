@@ -1,0 +1,13 @@
+<svg [attr.width]="size()" [attr.height]="size()" viewBox="0 0 84 84" class="gv-iris">
+  <circle cx="42" cy="42" r="34" class="gv-iris__track"></circle>
+  <circle
+    cx="42"
+    cy="42"
+    r="34"
+    class="gv-iris__value"
+    [style.stroke]="color()"
+    [style.strokeDasharray]="circumference"
+    [style.strokeDashoffset]="dashoffset()"
+  ></circle>
+  <text x="42" y="47" text-anchor="middle" class="gv-iris__label">{{ value() }}%</text>
+</svg>

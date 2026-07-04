@@ -1,0 +1,9 @@
+{
+  "erp": 87,
+  "reposicion": 26,
+  "disponibilidad": 95,
+  "sobrestock": 6,
+  "meses": ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+  "historicoErp": [68, 72, 75, 80, 83, 87],
+  "historicoReposicion": [40, 37, 33, 30, 28, 26]
+}

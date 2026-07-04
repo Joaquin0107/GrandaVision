@@ -1,0 +1,58 @@
+<div class="gv-shell" [class.gv-shell--collapsed]="!sidebarAbierto()">
+  <aside class="gv-sidebar">
+    <div class="gv-sidebar__brand">
+      <div class="gv-sidebar__mark">SG</div>
+      <span class="gv-sidebar__name gv-display">SmartStock <b>GV</b></span>
+    </div>
+
+    <nav class="gv-sidebar__nav">
+      @for (item of navItems; track item.route) {
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          class="gv-sidebar__item"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span class="gv-sidebar__label">{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="gv-sidebar__footer">
+      <span class="gv-sidebar__label">Granda Visión · v1.0</span>
+    </div>
+  </aside>
+
+  <div class="gv-main">
+    <header class="gv-navbar">
+      <button class="gv-navbar__burger" (click)="toggleSidebar()" aria-label="Alternar menú">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <div class="gv-navbar__spacer"></div>
+
+      <a routerLink="/alertas" class="gv-navbar__alerts" matBadgeColor="warn" [matBadge]="alertasActivas() > 0 ? alertasActivas() : null" matBadgeSize="small">
+        <mat-icon>notifications</mat-icon>
+      </a>
+
+      <button class="gv-navbar__user" [matMenuTriggerFor]="userMenu">
+        <span class="gv-navbar__avatar">{{ sesion()?.nombreCompleto?.charAt(0) }}</span>
+        <span class="gv-navbar__user-info">
+          <strong>{{ sesion()?.nombreCompleto }}</strong>
+          <small>{{ sesion()?.rol }}</small>
+        </span>
+        <mat-icon>expand_more</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="cerrarSesion()">
+          <mat-icon>logout</mat-icon>
+          <span>Cerrar sesión</span>
+        </button>
+      </mat-menu>
+    </header>
+
+    <main class="gv-content">
+      <router-outlet />
+    </main>
+  </div>
+</div>

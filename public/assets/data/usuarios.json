@@ -1,0 +1,4 @@
+[
+  { "id": 1, "usuario": "admin", "password": "123456", "nombreCompleto": "Administrador General", "rol": "Administrador" },
+  { "id": 2, "usuario": "compras", "password": "123456", "nombreCompleto": "Encargado de Compras", "rol": "Encargado de Compras" }
+]

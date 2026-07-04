@@ -1,0 +1,51 @@
+<div class="gv-page">
+  <header class="gv-page__header">
+    <div>
+      <h1 class="gv-display">Dashboard</h1>
+      <p class="gv-page__subtitle">Vista general de la cadena de suministro de Granda Visión.</p>
+    </div>
+  </header>
+
+  @if (indicadores(); as ind) {
+    <section class="gv-gauges">
+      <div class="gv-gauges__item">
+        <app-iris-gauge [value]="ind.erp" color="#123B6D" [size]="96" />
+        <span class="gv-gauges__label">Utilización ERP</span>
+      </div>
+      <div class="gv-gauges__item">
+        <app-iris-gauge [value]="ind.disponibilidad" color="#2FA36B" [size]="96" />
+        <span class="gv-gauges__label">Disponibilidad</span>
+      </div>
+      <div class="gv-gauges__item">
+        <app-iris-gauge [value]="ind.sobrestock" color="#E8A33D" [size]="96" />
+        <span class="gv-gauges__label">Índice de sobrestock</span>
+      </div>
+      <div class="gv-gauges__item gv-gauges__item--metric">
+        <span class="gv-gauges__metric gv-display">{{ ind.reposicion }}h</span>
+        <span class="gv-gauges__label">Reposición promedio</span>
+      </div>
+    </section>
+  }
+
+  <section class="gv-kpi-row">
+    <app-kpi-card icon="warning" label="Productos con stock crítico" [value]="stockCritico()" tone="critical" />
+    <app-kpi-card icon="local_shipping" label="Órdenes pendientes" [value]="ordenesPendientes()" tone="accent" />
+    <app-kpi-card icon="notifications_active" label="Alertas activas" [value]="alertasActivas()" tone="primary" />
+    <app-kpi-card icon="inventory_2" label="Productos en inventario" [value]="productos().length" tone="success" />
+  </section>
+
+  <section class="gv-charts">
+    <div class="gv-chart-card">
+      <h3 class="gv-display">Evolución de indicadores</h3>
+      <div class="gv-chart-card__canvas">
+        <canvas baseChart [data]="lineChartData" [options]="lineChartOptions" type="line"></canvas>
+      </div>
+    </div>
+    <div class="gv-chart-card">
+      <h3 class="gv-display">Stock actual por categoría</h3>
+      <div class="gv-chart-card__canvas">
+        <canvas baseChart [data]="barChartData" [options]="barChartOptions" type="bar"></canvas>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,79 @@
+.gv-gauges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  background: var(--gv-surface);
+  border-radius: var(--gv-radius);
+  box-shadow: var(--gv-shadow);
+  padding: 1.5rem 1rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gv-gauges__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gv-gauges__item--metric {
+  justify-content: center;
+}
+
+.gv-gauges__metric {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--gv-primary);
+  height: 96px;
+  display: flex;
+  align-items: center;
+}
+
+.gv-gauges__label {
+  font-size: 0.78rem;
+  color: var(--gv-text-muted);
+  text-align: center;
+}
+
+.gv-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gv-charts {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gv-chart-card {
+  background: var(--gv-surface);
+  border-radius: var(--gv-radius);
+  box-shadow: var(--gv-shadow);
+  padding: 1.25rem 1.4rem;
+
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+  }
+}
+
+.gv-chart-card__canvas {
+  height: 260px;
+  position: relative;
+}

@@ -1,0 +1,14 @@
+[
+  { "id": 1, "codigo": "MT001", "nombre": "Montura RayBan Aviator", "categoria": "Monturas", "proveedor": "Luxottica", "stockActual": 3, "stockMinimo": 10, "stockMaximo": 60, "precio": 320 },
+  { "id": 2, "codigo": "MT002", "nombre": "Montura Oakley Holbrook", "categoria": "Monturas", "proveedor": "Luxottica", "stockActual": 18, "stockMinimo": 10, "stockMaximo": 60, "precio": 280 },
+  { "id": 3, "codigo": "LT010", "nombre": "Luna Antirreflejo 1.56", "categoria": "Lunas", "proveedor": "Essilor", "stockActual": 95, "stockMinimo": 20, "stockMaximo": 80, "precio": 150 },
+  { "id": 4, "codigo": "LT011", "nombre": "Luna Fotocromática 1.61", "categoria": "Lunas", "proveedor": "Essilor", "stockActual": 12, "stockMinimo": 15, "stockMaximo": 70, "precio": 210 },
+  { "id": 5, "codigo": "LC020", "nombre": "Lente de Contacto Mensual", "categoria": "Lentes de Contacto", "proveedor": "Johnson & Johnson", "stockActual": 40, "stockMinimo": 25, "stockMaximo": 90, "precio": 65 },
+  { "id": 6, "codigo": "LC021", "nombre": "Lente de Contacto Diario", "categoria": "Lentes de Contacto", "proveedor": "Johnson & Johnson", "stockActual": 8, "stockMinimo": 20, "stockMaximo": 90, "precio": 55 },
+  { "id": 7, "codigo": "SL030", "nombre": "Gafas de Sol Polarizadas", "categoria": "Solares", "proveedor": "Persol", "stockActual": 30, "stockMinimo": 10, "stockMaximo": 40, "precio": 190 },
+  { "id": 8, "codigo": "SL031", "nombre": "Gafas de Sol Deportivas", "categoria": "Solares", "proveedor": "Persol", "stockActual": 4, "stockMinimo": 12, "stockMaximo": 40, "precio": 175 },
+  { "id": 9, "codigo": "AC040", "nombre": "Estuche Rígido Premium", "categoria": "Accesorios", "proveedor": "Vision Supply Co.", "stockActual": 120, "stockMinimo": 30, "stockMaximo": 100, "precio": 25 },
+  { "id": 10, "codigo": "AC041", "nombre": "Paño de Microfibra", "categoria": "Accesorios", "proveedor": "Vision Supply Co.", "stockActual": 200, "stockMinimo": 50, "stockMaximo": 150, "precio": 8 },
+  { "id": 11, "codigo": "MT003", "nombre": "Montura Infantil Flex", "categoria": "Monturas", "proveedor": "Vision Supply Co.", "stockActual": 22, "stockMinimo": 15, "stockMaximo": 60, "precio": 145 },
+  { "id": 12, "codigo": "LT012", "nombre": "Luna Progresiva Digital", "categoria": "Lunas", "proveedor": "Essilor", "stockActual": 6, "stockMinimo": 10, "stockMaximo": 50, "precio": 380 }
+]

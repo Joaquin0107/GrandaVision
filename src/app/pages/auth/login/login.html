@@ -1,0 +1,67 @@
+<div class="gv-login">
+  <section class="gv-login__hero">
+    <div class="gv-login__hero-content">
+      <div class="gv-lens" aria-hidden="true">
+        <svg viewBox="0 0 240 240" width="220" height="220">
+          <circle cx="120" cy="120" r="110" class="ring ring-1"></circle>
+          <circle cx="120" cy="120" r="86" class="ring ring-2"></circle>
+          <circle cx="120" cy="120" r="62" class="ring ring-3"></circle>
+          <circle cx="120" cy="120" r="38" class="ring ring-4"></circle>
+          <circle cx="120" cy="120" r="14" class="pupil"></circle>
+        </svg>
+      </div>
+      <h1 class="gv-display">SmartStock <span>GV</span></h1>
+      <p class="gv-login__tag">Gestión inteligente de la cadena de suministro — Granda Visión</p>
+      <ul class="gv-login__facts">
+        <li><strong>87%</strong> utilización ERP</li>
+        <li><strong>26h</strong> reposición promedio</li>
+        <li><strong>95%</strong> disponibilidad de stock</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="gv-login__panel">
+    <div class="gv-login__card">
+      <h2 class="gv-display">Bienvenido de vuelta</h2>
+      <p class="gv-login__subtitle">Ingresa tus credenciales para acceder al panel de control.</p>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" class="gv-login__form">
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="usuario" autocomplete="username" />
+          <mat-icon matPrefix>person</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="ocultarPassword() ? 'password' : 'text'" formControlName="password" autocomplete="current-password" />
+          <mat-icon matPrefix>lock</mat-icon>
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="ocultarPassword.set(!ocultarPassword())"
+            [attr.aria-label]="ocultarPassword() ? 'Mostrar contraseña' : 'Ocultar contraseña'"
+          >
+            <mat-icon>{{ ocultarPassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        @if (error()) {
+          <p class="gv-login__error" role="alert">{{ error() }}</p>
+        }
+
+        <button mat-flat-button color="primary" class="gv-login__submit" type="submit" [disabled]="cargando()">
+          @if (cargando()) {
+            <mat-spinner diameter="20" class="inline-block align-middle mr-2"></mat-spinner>
+            Verificando...
+          } @else {
+            Iniciar sesión
+          }
+        </button>
+      </form>
+
+      <p class="gv-login__hint">Demo: usuario <strong class="gv-mono">admin</strong> · contraseña <strong class="gv-mono">123456</strong></p>
+    </div>
+  </section>
+</div>

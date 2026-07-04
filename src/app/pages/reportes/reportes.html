@@ -1,0 +1,77 @@
+<div class="gv-page">
+  <header class="gv-page__header">
+    <div>
+      <h1 class="gv-display">Reportes</h1>
+      <p class="gv-page__subtitle">Resumen ejecutivo de la Gestión de la Cadena de Suministro.</p>
+    </div>
+    <div class="gv-reportes__export">
+      <button mat-stroked-button (click)="exportarPdf()"><mat-icon>picture_as_pdf</mat-icon> Exportar PDF</button>
+      <button mat-stroked-button (click)="exportarExcel()"><mat-icon>grid_on</mat-icon> Exportar Excel</button>
+    </div>
+  </header>
+
+  @if (indicadores(); as ind) {
+    <section class="gv-reportes__grid">
+      <div class="gv-card">
+        <span class="gv-reportes__label">Tiempo promedio de reposición</span>
+        <strong class="gv-display gv-reportes__value">{{ ind.reposicion }}h</strong>
+      </div>
+      <div class="gv-card">
+        <span class="gv-reportes__label">Disponibilidad de stock</span>
+        <strong class="gv-display gv-reportes__value">{{ ind.disponibilidad }}%</strong>
+      </div>
+      <div class="gv-card">
+        <span class="gv-reportes__label">Utilización del ERP</span>
+        <strong class="gv-display gv-reportes__value">{{ ind.erp }}%</strong>
+      </div>
+      <div class="gv-card">
+        <span class="gv-reportes__label">Índice de sobrestock</span>
+        <strong class="gv-display gv-reportes__value">{{ ind.sobrestock }}%</strong>
+      </div>
+    </section>
+  }
+
+  <section class="gv-reportes__lists">
+    <div class="gv-card">
+      <h3 class="gv-display">Productos críticos ({{ criticos().length }})</h3>
+      @if (criticos().length === 0) {
+        <p class="gv-reportes__empty">No hay productos en estado crítico o bajo.</p>
+      } @else {
+        <ul>
+          @for (p of criticos(); track p.id) {
+            <li>{{ p.nombre }} <span class="gv-mono">({{ p.stockActual }}/{{ p.stockMinimo }})</span></li>
+          }
+        </ul>
+      }
+    </div>
+
+    <div class="gv-card">
+      <h3 class="gv-display">Productos con sobrestock ({{ sobrestock().length }})</h3>
+      @if (sobrestock().length === 0) {
+        <p class="gv-reportes__empty">No hay productos en sobrestock.</p>
+      } @else {
+        <ul>
+          @for (p of sobrestock(); track p.id) {
+            <li>{{ p.nombre }} <span class="gv-mono">({{ p.stockActual }}/{{ p.stockMaximo }})</span></li>
+          }
+        </ul>
+      }
+    </div>
+  </section>
+
+  <section class="gv-card">
+    <h3 class="gv-display">Recomendaciones inteligentes</h3>
+    <p class="gv-page__subtitle">Generadas mediante reglas de negocio sobre el inventario actual.</p>
+    <ul class="gv-reportes__recomendaciones">
+      @for (r of recomendaciones(); track r.productoId) {
+        <li [class]="'gv-reco--' + r.tipo">
+          <mat-icon>{{ r.tipo === 'comprar' ? 'shopping_cart' : 'block' }}</mat-icon>
+          <span><strong>{{ r.productoNombre }}:</strong> {{ r.mensaje }}</span>
+        </li>
+      }
+      @empty {
+        <li class="gv-reportes__empty">Sin recomendaciones pendientes por ahora.</li>
+      }
+    </ul>
+  </section>
+</div>

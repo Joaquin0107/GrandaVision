@@ -1,0 +1,30 @@
+.gv-config__perfil {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  p { margin: 0.2rem 0 0; color: var(--gv-text-muted); font-size: 0.85rem; }
+}
+
+.gv-config__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--gv-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.gv-config__danger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border: 1px solid rgba(214, 69, 93, 0.25);
+}

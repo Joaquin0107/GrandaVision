@@ -1,0 +1,31 @@
+<div class="gv-page">
+  <header class="gv-page__header">
+    <div>
+      <h1 class="gv-display">Configuración</h1>
+      <p class="gv-page__subtitle">Datos de sesión y administración del prototipo (Fake Backend).</p>
+    </div>
+  </header>
+
+  <div class="gv-card gv-config__perfil">
+    <div class="gv-config__avatar">{{ sesion()?.nombreCompleto?.charAt(0) }}</div>
+    <div>
+      <strong>{{ sesion()?.nombreCompleto }}</strong>
+      <p>Usuario: <span class="gv-mono">{{ sesion()?.usuario }}</span> · Rol: {{ sesion()?.rol }}</p>
+    </div>
+  </div>
+
+  <div class="gv-card gv-config__danger">
+    <div>
+      <h3 class="gv-display">Restablecer datos de demostración</h3>
+      <p class="gv-page__subtitle">
+        Vuelve a cargar productos, órdenes, alertas, proveedores e indicadores desde los
+        archivos JSON originales (<code class="gv-mono">assets/data</code>), descartando los
+        cambios hechos en localStorage durante esta demo.
+      </p>
+    </div>
+    <button mat-stroked-button color="warn" (click)="restablecerDatos()" [disabled]="restableciendo()">
+      <mat-icon>restart_alt</mat-icon>
+      Restablecer
+    </button>
+  </div>
+</div>

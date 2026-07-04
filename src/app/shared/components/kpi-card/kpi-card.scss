@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.gv-kpi {
+  background: var(--gv-surface);
+  border-radius: var(--gv-radius);
+  box-shadow: var(--gv-shadow);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  height: 100%;
+}
+
+.gv-kpi__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(18, 59, 109, 0.08);
+  color: var(--gv-primary);
+}
+
+.gv-kpi--accent .gv-kpi__icon { background: rgba(232, 163, 61, 0.16); color: #a6650e; }
+.gv-kpi--critical .gv-kpi__icon { background: rgba(214, 69, 93, 0.12); color: var(--gv-critical); }
+.gv-kpi--success .gv-kpi__icon { background: rgba(47, 163, 107, 0.12); color: var(--gv-success); }
+
+.gv-kpi__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gv-kpi__value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.gv-kpi__label {
+  font-size: 0.78rem;
+  color: var(--gv-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

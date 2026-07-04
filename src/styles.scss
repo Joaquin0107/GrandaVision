@@ -1,0 +1,145 @@
+@use "tailwindcss";
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+
+/* ---------------------------------------------------
+   SmartStock GV — Design tokens
+   Concepto: "Iris óptico" — anillos de progreso tipo
+   apertura de lente para los indicadores del dashboard.
+--------------------------------------------------- */
+:root {
+  --gv-primary: #123B6D;
+  --gv-primary-light: #2C6FB0;
+  --gv-accent: #E8A33D;
+  --gv-critical: #D6455D;
+  --gv-success: #2FA36B;
+  --gv-bg: #F3F6F9;
+  --gv-surface: #FFFFFF;
+  --gv-border: #E2E8F0;
+  --gv-text: #16202B;
+  --gv-text-muted: #5B6B7C;
+
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --gv-radius: 14px;
+  --gv-radius-sm: 8px;
+  --gv-shadow: 0 1px 2px rgba(18, 59, 109, 0.06), 0 8px 24px -12px rgba(18, 59, 109, 0.15);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--gv-bg);
+  color: var(--gv-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, .gv-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.gv-mono {
+  font-family: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--gv-primary-light);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------
+   Patrones de página compartidos entre módulos
+--------------------------------------------------- */
+.gv-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gv-page__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  h1 {
+    margin: 0 0 0.2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.gv-page__subtitle {
+  margin: 0;
+  color: var(--gv-text-muted);
+  font-size: 0.9rem;
+}
+
+.gv-toolbar {
+  background: var(--gv-surface);
+  border-radius: var(--gv-radius);
+  box-shadow: var(--gv-shadow);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.gv-card {
+  background: var(--gv-surface);
+  border-radius: var(--gv-radius);
+  box-shadow: var(--gv-shadow);
+  padding: 1.25rem 1.4rem;
+}
+
+.gv-table-wrap {
+  background: var(--gv-surface);
+  border-radius: var(--gv-radius);
+  box-shadow: var(--gv-shadow);
+  overflow: hidden;
+}
+
+.gv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.gv-chip--disponible { background: rgba(47,163,107,0.12); color: var(--gv-success); }
+.gv-chip--bajo { background: rgba(232,163,61,0.16); color: #a6650e; }
+.gv-chip--critico { background: rgba(214,69,93,0.12); color: var(--gv-critical); }
+.gv-chip--sobrestock { background: rgba(44,111,176,0.12); color: var(--gv-primary-light); }
+
+.gv-chip--pendiente { background: rgba(232,163,61,0.16); color: #a6650e; }
+.gv-chip--proceso { background: rgba(44,111,176,0.12); color: var(--gv-primary-light); }
+.gv-chip--recibida { background: rgba(47,163,107,0.12); color: var(--gv-success); }
+
+.gv-dialog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+  min-width: 420px;
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    min-width: 0;
+  }
+}
