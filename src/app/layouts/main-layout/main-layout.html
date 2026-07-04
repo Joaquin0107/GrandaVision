@@ -1,4 +1,6 @@
 <div class="gv-shell" [class.gv-shell--collapsed]="!sidebarAbierto()">
+  <div class="gv-backdrop" (click)="toggleSidebar()"></div>
+
   <aside class="gv-sidebar">
     <div class="gv-sidebar__brand">
       <div class="gv-sidebar__mark">SG</div>
@@ -11,6 +13,7 @@
           [routerLink]="item.route"
           routerLinkActive="active"
           class="gv-sidebar__item"
+          (click)="cerrarSidebarSiMobile()"
         >
           <mat-icon>{{ item.icon }}</mat-icon>
           <span class="gv-sidebar__label">{{ item.label }}</span>

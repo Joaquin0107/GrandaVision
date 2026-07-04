@@ -22,10 +22,34 @@
 
     .gv-sidebar {
       position: fixed;
-      z-index: 20;
+      z-index: 30;
       height: 100vh;
+      transition: transform 0.25s ease;
+      transform: translateX(0);
+
+      .gv-sidebar__label,
+      .gv-sidebar__name {
+        display: flex;
+      }
+    }
+
+    &.gv-shell--collapsed .gv-sidebar {
       transform: translateX(-100%);
     }
+  }
+}
+
+.gv-backdrop {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .gv-shell:not(.gv-shell--collapsed) .gv-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 39, 73, 0.45);
+    z-index: 25;
   }
 }
 

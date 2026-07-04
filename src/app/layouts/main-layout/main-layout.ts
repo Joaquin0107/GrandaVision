@@ -25,7 +25,7 @@ export class MainLayout {
   private router = inject(Router);
 
   readonly sesion = this.auth.sesion;
-  readonly sidebarAbierto = signal(true);
+  readonly sidebarAbierto = signal(!this.esMobile());
   readonly alertasActivas = signal(0);
 
   readonly navItems: NavItem[] = [
@@ -47,6 +47,16 @@ export class MainLayout {
 
   toggleSidebar(): void {
     this.sidebarAbierto.set(!this.sidebarAbierto());
+  }
+
+  cerrarSidebarSiMobile(): void {
+    if (this.esMobile()) {
+      this.sidebarAbierto.set(false);
+    }
+  }
+
+  private esMobile(): boolean {
+    return typeof window !== 'undefined' && window.matchMedia('(max-width: 800px)').matches;
   }
 
   cerrarSesion(): void {
