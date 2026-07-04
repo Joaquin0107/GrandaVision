@@ -18,14 +18,22 @@
   }
 
   @media (max-width: 800px) {
-    grid-template-columns: 1fr;
+    &,
+    &.gv-shell--collapsed {
+      grid-template-columns: 1fr;
+    }
 
     .gv-sidebar {
       position: fixed;
-      z-index: 30;
+      top: 0;
+      left: 0;
+      width: 248px;
+      max-width: 82vw;
       height: 100vh;
+      z-index: 30;
       transition: transform 0.25s ease;
       transform: translateX(0);
+      box-shadow: 4px 0 18px rgba(11, 39, 73, 0.25);
 
       .gv-sidebar__label,
       .gv-sidebar__name {
