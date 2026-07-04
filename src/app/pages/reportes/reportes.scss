@@ -1,5 +1,6 @@
 .gv-reportes__export {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
@@ -10,6 +11,10 @@
 
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
   }
 }
 

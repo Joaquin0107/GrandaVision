@@ -146,7 +146,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: var(--gv-surface);
   border-radius: var(--gv-radius);
   box-shadow: var(--gv-shadow);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gv-chip {
