@@ -71,6 +71,19 @@ button {
   font-family: var(--font-body) !important;
 }
 
+/* Preferencia visual: en vez del "notch" clásico de Material (el borde se
+   corta donde va el label), queremos el recuadro completo y continuo,
+   con el label superpuesto encima. Forzamos que la pieza del borde que
+   normalmente se oculta al flotar el label (border-top: none) siga
+   presente siempre. currentColor hace que tome automáticamente el mismo
+   color que ya usan las piezas vecinas (gris en reposo, azul en foco,
+   rojo si el campo es inválido). */
+.mdc-notched-outline__notch {
+  border-top-style: solid !important;
+  border-top-width: 1px !important;
+  border-top-color: currentColor !important;
+}
+
 h1, h2, h3, h4, .gv-display {
   font-family: var(--font-display);
   letter-spacing: -0.01em;
