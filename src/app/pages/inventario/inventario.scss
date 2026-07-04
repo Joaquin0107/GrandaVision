@@ -3,6 +3,18 @@
   min-width: 220px;
 }
 
+// Mismo fix de tipografía serif que en login.scss: aplica a los mat-form-field
+// de búsqueda/categoría/estado de esta vista.
+:host ::ng-deep {
+  .mat-mdc-form-field,
+  .mdc-text-field,
+  .mdc-floating-label,
+  .mdc-notched-outline__notch,
+  input {
+    font-family: inherit !important;
+  }
+}
+
 .gv-table__min {
   color: var(--gv-text-muted);
   font-size: 0.78rem;

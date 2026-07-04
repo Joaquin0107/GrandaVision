@@ -3,6 +3,19 @@
   min-height: 100vh;
 }
 
+// Fix: los controles de formulario (input/label/legend del notch de Material)
+// no heredan la tipografía del body por defecto y caen al serif del navegador
+// en cuanto reciben foco o contenido. Forzamos herencia explícita.
+:host ::ng-deep {
+  input,
+  .mat-mdc-form-field,
+  .mdc-text-field,
+  .mdc-floating-label,
+  .mdc-notched-outline__notch {
+    font-family: inherit !important;
+  }
+}
+
 .gv-login {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
