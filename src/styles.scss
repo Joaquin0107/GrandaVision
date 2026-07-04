@@ -49,15 +49,20 @@ input,
 textarea,
 select,
 button {
-  font-family: inherit;
+  font-family: inherit !important;
 }
 
 .mat-mdc-form-field,
+.mat-mdc-text-field-wrapper,
 .mdc-text-field,
+.mdc-text-field__input,
+.mat-mdc-input-element,
 .mdc-floating-label,
 .mdc-notched-outline__notch,
 .mat-mdc-select-value,
 .mat-mdc-select-panel,
+.mat-mdc-select-min-line,
+.mat-mdc-option,
 .mat-datepicker-content,
 .mat-mdc-dialog-container,
 .mat-mdc-menu-panel,
