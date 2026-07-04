@@ -35,6 +35,39 @@ html, body {
   font-family: var(--font-body);
 }
 
+/* ---------------------------------------------------
+   Fix: los controles de formulario nativos (input, select,
+   textarea, button) NO heredan font-family del body por
+   defecto del navegador; el user-agent stylesheet les asigna
+   su propia fuente del sistema, que puede caer en un serif.
+   Angular Material construye sus componentes (mat-form-field,
+   mat-select, mat-dialog, mat-datepicker) sobre estos mismos
+   elementos nativos, así que el problema se propaga a toda
+   la app: login, filtros de inventario, diálogos, etc.
+--------------------------------------------------- */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+.mat-mdc-form-field,
+.mdc-text-field,
+.mdc-floating-label,
+.mdc-notched-outline__notch,
+.mat-mdc-select-value,
+.mat-mdc-select-panel,
+.mat-datepicker-content,
+.mat-mdc-dialog-container,
+.mat-mdc-menu-panel,
+.mat-mdc-autocomplete-panel,
+.mdc-list-item,
+.mat-mdc-tooltip,
+.mat-mdc-snack-bar-container {
+  font-family: var(--font-body) !important;
+}
+
 h1, h2, h3, h4, .gv-display {
   font-family: var(--font-display);
   letter-spacing: -0.01em;
